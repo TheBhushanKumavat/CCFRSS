@@ -151,7 +151,8 @@ elif page == "Batch Evaluation":
                         color = '#ff4b4b' if val == 'High' else '#ffa500' if val == 'Medium' else '#00cc66'
                         return f'color: {color}; font-weight: bold;'
                         
-                    st.dataframe(results_df.style.applymap(color_risk, subset=['Risk Level']), use_container_width=True)
+                    # st.dataframe(results_df.style.applymap(color_risk, subset=['Risk Level']), use_container_width=True)
+                    st.dataframe(results_df.style.map(color_risk, subset=['Risk Level']), use_container_width=True)
                     
                 except Exception as e:
                     st.error(f"Failed to process batch: {e}")
